@@ -1,5 +1,11 @@
 import SliderEff from "./slider";
 import list from "../../public/data.json";
+let freelist = list.filter((list) => {
+  if (list.price == 0) {
+    return list;
+  }
+});
+
 export default function CardPart() {
   return (
     <>
@@ -20,7 +26,7 @@ export default function CardPart() {
           impedit!
         </p>
       </div>
-      <SliderEff list={list}></SliderEff>
+      <SliderEff list={freelist}></SliderEff>
     </>
   );
 }

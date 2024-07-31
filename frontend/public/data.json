@@ -47,5 +47,19 @@
     "price": 0,
     "category": "romance",
     "image": "https://t4.ftcdn.net/jpg/05/64/02/21/240_F_564021591_Kv6F7b5W9w2Rg8l1IdwIS6vUSNbHV5le.jpg"
+  },
+  {
+    "id": 8,
+    "bookname": "Pride and Prejudice",
+    "price": 0,
+    "category": "romance",
+    "image": "https://t4.ftcdn.net/jpg/05/64/02/21/240_F_564021591_Kv6F7b5W9w2Rg8l1IdwIS6vUSNbHV5le.jpg"
+  },
+  {
+    "id": 9,
+    "bookname": "Pride and Prejudice",
+    "price": 0,
+    "category": "romance",
+    "image": "https://t4.ftcdn.net/jpg/05/64/02/21/240_F_564021591_Kv6F7b5W9w2Rg8l1IdwIS6vUSNbHV5le.jpg"
   }
 ]

@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-
+import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -110,6 +110,7 @@ const pages = ["Home", "Course", "Contact", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function Navbar() {
+  let navigate = useNavigate();
   let [mode, setMode] = React.useState(false);
   let checkMode = () => {
     setMode(!mode);
@@ -120,12 +121,10 @@ export default function Navbar() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  const handleOpenUserMenu = (event) => {};
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleCloseNavMenu = (e) => {
+    navigate(`/${e.target.name.toLowerCase()}`);
   };
 
   const handleCloseUserMenu = () => {
@@ -206,6 +205,7 @@ export default function Navbar() {
           >
             {pages.map((page) => (
               <Button
+                name={page}
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{

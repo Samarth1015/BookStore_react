@@ -1,16 +1,28 @@
-import Navbar from "./component/navbar";
-import Banner from "./component/Banner";
+import Course from "./course/course";
+import Home from "./home/home";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
 
-import Footeri from "./component/footer";
-import CardPart from "./component/Cardbox";
+let router = createBrowserRouter([
+  {
+    path: "/home",
+    element: <Home></Home>,
+  },
+  {
+    path: "/course",
+    element: <Course></Course>,
+  },
+]);
+
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Banner></Banner>
-      <CardPart></CardPart>
-      <Footeri></Footeri>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 };
 
