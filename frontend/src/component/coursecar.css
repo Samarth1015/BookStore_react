@@ -1,0 +1,9 @@
+.H1 {
+  font-size: 3rem;
+  font-weight: bolder;
+}
+@media (max-width: 600px) {
+  .H1 {
+    font-size: 2rem;
+  }
+}

@@ -9,7 +9,7 @@ import {
 
 let router = createBrowserRouter([
   {
-    path: "/home",
+    path: "/",
     element: <Home></Home>,
   },
   {

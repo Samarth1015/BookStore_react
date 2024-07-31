@@ -13,11 +13,12 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-import { useNavigate } from "react-router-dom";
+
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { DarkMode } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -110,21 +111,36 @@ const pages = ["Home", "Course", "Contact", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function Navbar() {
-  let navigate = useNavigate();
   let [mode, setMode] = React.useState(false);
   let checkMode = () => {
     setMode(!mode);
   };
+  let navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  let navigatefun = (e) => {
+    console.log(e.target.textContent);
+    console.log(e.target.name.toLowerCase());
+    e.target.name.toLowerCase() === "home"
+      ? navigate(`/`)
+      : navigate(`/${e.target.name.toLowerCase()}`);
+  };
+  let responsiveNavigateFun = (e) => {
+    console.log(e.target.textContent);
 
+    e.target.textContent.toLowerCase() === "home"
+      ? navigate(`/`)
+      : navigate(`/${e.target.textContent.toLowerCase()}`);
+  };
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {};
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
 
-  const handleCloseNavMenu = (e) => {
-    navigate(`/${e.target.name.toLowerCase()}`);
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -132,135 +148,142 @@ export default function Navbar() {
   };
 
   return (
-    <AppBar
-      position="fixed"
-      style={{
-        backgroundColor: "white",
-        color: "black",
-      }}
-    >
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".1rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            BookStore
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+    <div>
+      <AppBar
+        position="fixed"
+        style={{
+          backgroundColor: "white",
+          color: "black",
+        }}
+      >
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".1rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              BookStore
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography
+                      textAlign="center"
+                      name={page}
+                      style={{ color: "black" }}
+                      onClick={responsiveNavigateFun}
+                    >
+                      {page}
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                justifyContent: "right",
+                mr: 2,
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" style={{ color: "black" }}>
-                    {page}
-                  </Typography>
-                </MenuItem>
+                <Button
+                  key={page}
+                  onClick={navigatefun}
+                  sx={{
+                    my: 2,
+                    color: "black",
+                    display: "block",
+                    textAlign: "center",
+                  }}
+                  name={page}
+                >
+                  {page}
+                </Button>
               ))}
-            </Menu>
-          </Box>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              justifyContent: "right",
-              mr: 2,
-            }}
-          >
-            {pages.map((page) => (
-              <Button
-                name={page}
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color: "black",
-                  display: "block",
-                  textAlign: "center",
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+            </Box>
 
-          <Box
-            style={{
-              backgroundColor: "#c7c9c8",
-              width: "fit-content",
-              borderRadius: "2rem",
-            }}
-          >
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-          </Box>
-          <FormControlLabel
-            control={
-              <MaterialUISwitch
-                sx={{ m: 2 }}
-                defaultChecked
-                onChange={checkMode}
-              />
-            }
-            label={mode ? "LightMode" : "DarkMode"}
-          />
-          <Button
-            variant="contained"
-            color="error"
-            style={{
-              width: "1rem",
-              marginLeft: "1rem",
-              borderRadius: "0.5rem",
-              backgroundColor: "black",
-            }}
-          >
-            login
-          </Button>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <Box
+              style={{
+                backgroundColor: "#c7c9c8",
+                width: "fit-content",
+                borderRadius: "2rem",
+              }}
+            >
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
+            </Box>
+            <FormControlLabel
+              control={
+                <MaterialUISwitch
+                  sx={{ m: 2 }}
+                  defaultChecked
+                  onChange={checkMode}
+                />
+              }
+              label={mode ? "LightMode" : "DarkMode"}
+            />
+            <Button
+              variant="contained"
+              color="error"
+              style={{
+                width: "1rem",
+                marginLeft: "1rem",
+                borderRadius: "0.5rem",
+                backgroundColor: "black",
+              }}
+            >
+              login
+            </Button>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </div>
   );
 }
