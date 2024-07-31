@@ -7,6 +7,10 @@ import {
   FooterLinkGroup,
 } from "flowbite-react";
 import "./footer.css";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
 export default function Footeri() {
   return (
     <Footer container style={{ height: "7rem" }}>
@@ -45,6 +49,18 @@ export default function Footeri() {
         </div>
         <FooterDivider />
         <FooterCopyright href="#" by="Flowbite™" year={2024} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "0.5rem",
+          }}
+        >
+          <InstagramIcon style={{ marginLeft: "1.1rem" }}></InstagramIcon>
+          <LinkedInIcon style={{ marginLeft: "1.1rem" }}></LinkedInIcon>
+          <GitHubIcon style={{ marginLeft: "1.1rem" }}></GitHubIcon>
+          <WhatsAppIcon style={{ marginLeft: "1.1rem" }}></WhatsAppIcon>
+        </div>
       </div>
     </Footer>
   );
