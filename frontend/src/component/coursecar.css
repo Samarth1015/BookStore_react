@@ -2,6 +2,19 @@
   font-size: 3rem;
   font-weight: bolder;
 }
+.showCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.cardHover {
+  transition: box-shadow 0.3s ease;
+}
+.cardHover:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 600px) {
   .H1 {
     font-size: 2rem;

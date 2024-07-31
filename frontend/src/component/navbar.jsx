@@ -19,6 +19,7 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { DarkMode } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import Login from "./login";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -269,18 +270,7 @@ export default function Navbar() {
               }
               label={mode ? "LightMode" : "DarkMode"}
             />
-            <Button
-              variant="contained"
-              color="error"
-              style={{
-                width: "1rem",
-                marginLeft: "1rem",
-                borderRadius: "0.5rem",
-                backgroundColor: "black",
-              }}
-            >
-              login
-            </Button>
+            <Login></Login>
           </Toolbar>
         </Container>
       </AppBar>

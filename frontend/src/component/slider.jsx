@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import "./slider.css";
 
 export default function SliderEff({ list }) {
   let settings = {
@@ -48,7 +49,10 @@ export default function SliderEff({ list }) {
         {list.map((list) => {
           return (
             <div key={list.id}>
-              <Card sx={{ maxWidth: 345, height: "20rem" }}>
+              <Card
+                className="cardHover"
+                sx={{ maxWidth: 345, height: "20rem" }}
+              >
                 <CardActionArea>
                   <CardMedia
                     component="img"

@@ -1,3 +1,4 @@
+import Signup from "./component/signup";
 import Course from "./course/course";
 import Home from "./home/home";
 import {
@@ -15,6 +16,10 @@ let router = createBrowserRouter([
   {
     path: "/course",
     element: <Course></Course>,
+  },
+  {
+    path: "/signup",
+    element: <Signup></Signup>,
   },
 ]);
 
