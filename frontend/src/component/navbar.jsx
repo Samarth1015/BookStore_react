@@ -13,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
+import "./navbar.css";
 
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
@@ -244,6 +245,7 @@ export default function Navbar() {
             </Box>
 
             <Box
+              className="Search"
               style={{
                 backgroundColor: "#c7c9c8",
                 width: "fit-content",

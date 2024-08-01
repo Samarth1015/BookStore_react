@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import list from "../../public/data.json";
+import axios from "axios";
 import "./coursecar.css";
 import {
   Card,
@@ -10,7 +10,25 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 export default function Coursecard() {
+  let [bookData, setBookData] = useState([]);
+
+  useEffect(() => {
+    let fetchdata = async () => {
+      await axios
+        .get("/api/book")
+        .then((res) => {
+          console.log(res);
+          setBookData(res.data);
+        })
+        .catch((err) => {
+          console.log("Error:", err);
+        });
+    };
+    fetchdata();
+  }, []);
+
   return (
     <div>
       <h1 className="H1">
@@ -33,9 +51,9 @@ export default function Coursecard() {
         </Link>
       </div>
       <div className="showCard" style={{ marginTop: "2rem" }}>
-        {list.map((list) => {
+        {bookData.map((bookData) => {
           return (
-            <div key={list.id} style={{ marginBottom: "3rem" }}>
+            <div key={bookData._id} style={{ marginBottom: "3rem" }}>
               {" "}
               <Card
                 className="cardHover"
@@ -49,7 +67,7 @@ export default function Coursecard() {
                     component="img"
                     height="140"
                     sx={{ height: "9rem" }}
-                    image={list.image}
+                    image={bookData.image}
                     alt="green iguana"
                   />
                   <CardContent>
@@ -62,10 +80,10 @@ export default function Coursecard() {
                         fontFamily: "cursive",
                       }}
                     >
-                      {list.bookname}
+                      {bookData.bookname}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      list.titlke
+                      bookData.titlke
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -81,7 +99,7 @@ export default function Coursecard() {
                   >
                     <p style={{ fontSize: "12px", color: "black" }}>
                       Rs:
-                      {list.price}
+                      {bookData.price}
                     </p>
                   </Button>
                   <Button
@@ -94,7 +112,7 @@ export default function Coursecard() {
                     }}
                   >
                     <p style={{ color: "white", fontSize: "11px" }}>
-                      {list.category}
+                      {bookData.category}
                     </p>
                   </Button>
                 </CardActions>

@@ -48,7 +48,7 @@ export default function SliderEff({ list }) {
       <Slider {...settings}>
         {list.map((list) => {
           return (
-            <div key={list.id}>
+            <div key={list._id}>
               <Card
                 className="cardHover"
                 sx={{ maxWidth: 345, height: "20rem" }}

@@ -1,12 +1,29 @@
+import { useEffect, useState } from "react";
 import SliderEff from "./slider";
-import list from "../../public/data.json";
-let freelist = list.filter((list) => {
-  if (list.price == 0) {
-    return list;
-  }
-});
+import axios from "axios";
 
 export default function CardPart() {
+  let [bookData, setBookData] = useState([]);
+
+  useEffect(() => {
+    let fetchdata = async () => {
+      await axios
+        .get("/api/book")
+        .then((res) => {
+          console.log(res);
+          setBookData(res.data);
+        })
+        .catch((err) => {
+          console.log("Error:", err);
+        });
+    };
+    fetchdata();
+  }, []);
+  let freelist = bookData.filter((data) => {
+    if (data.price === 0) {
+      return data;
+    }
+  });
   return (
     <>
       <div
