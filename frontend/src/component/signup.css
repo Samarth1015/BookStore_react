@@ -1,0 +1,14 @@
+.signupButton {
+  background-color: #cf08aa !important;
+  color: white;
+  width: 6rem;
+  margin-right: "18rem";
+}
+@media (max-width: 600px) {
+  .signupButton {
+    background-color: #cf08aa;
+    color: white;
+    width: 6rem;
+    margin-right: 3.5rem !important;
+  }
+}

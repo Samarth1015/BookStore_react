@@ -10,7 +10,6 @@ export default function CardPart() {
       await axios
         .get("/api/book")
         .then((res) => {
-          console.log(res);
           setBookData(res.data);
         })
         .catch((err) => {
