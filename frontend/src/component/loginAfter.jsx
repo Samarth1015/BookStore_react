@@ -11,9 +11,11 @@ import { blue } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/authcontext";
 
 export default function Login() {
   let navigate = useNavigate();
+  let context = React.useContext(AuthContext);
   const [open, setOpen] = React.useState(true);
 
   const handleClickOpen = () => {
@@ -49,6 +51,7 @@ export default function Login() {
                 navigate("/");
                 toast.success(res.data.message);
                 localStorage.setItem("user", JSON.stringify(res.data.user));
+                context.setAuthUser(res.data.user);
               })
               .catch((err) => {
                 toast.error(err.response.data.message);

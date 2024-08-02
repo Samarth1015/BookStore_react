@@ -28,10 +28,18 @@ export default function Banner() {
             <span style={{ color: "#cf08aa" }}>Something New!</span>
           </h6>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
-            voluptatum amet corrupti delectus repudiandae aut facere error minus
-            sint architecto. Doloremque, iusto! Maxime voluptate tempore omnis
-            aliquid odio doloribus consectetur?
+            Welcome to BookStore, your one-stop destination for a literary
+            adventure. Nestled in the heart of Indore, our bookstore offers a
+            vast collection of books spanning various genres, including fiction,
+            non-fiction, mystery, romance, science fiction, and more. Whether
+            you're a passionate reader, a student seeking textbooks, or someone
+            looking for a perfect gift, we have something for everyone. Our cozy
+            reading nooks provide a serene environment to immerse yourself in a
+            good book. Our knowledgeable staff is always on hand to offer
+            recommendations and help you find your next great read. Beyond
+            books, we host regular events, including author signings, book
+            clubs, and reading sessions, fostering a community of book lovers.
+            Come visit us and embark on your next literary journey at BookStore.
           </p>
           <form noValidate autoComplete="off">
             <FormControl

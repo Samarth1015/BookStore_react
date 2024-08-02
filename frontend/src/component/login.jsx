@@ -4,14 +4,16 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
+
 import DialogTitle from "@mui/material/DialogTitle";
 import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/authcontext";
 
 export default function Login() {
+  let context = React.useContext(AuthContext);
   let navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
 
@@ -60,6 +62,7 @@ export default function Login() {
                 navigate("/");
                 toast.success(res.data.message);
                 localStorage.setItem("user", JSON.stringify(res.data.user));
+                context.setAuthUser(res.data.user);
               })
               .catch((err) => {
                 navigate("/");

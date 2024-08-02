@@ -61,5 +61,47 @@
     "price": 0,
     "category": "romance",
     "image": "https://m.media-amazon.com/images/I/71Kezi+HZeL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 10,
+    "bookname": "Cursed Britain",
+    "price": 0,
+    "category": "Thrill",
+    "image": "https://i.pinimg.com/736x/77/cd/21/77cd216d11dd3376383980ed161601fb.jpg"
+  },
+  {
+    "id": 11,
+    "bookname": "The Ashes and the star cursed king",
+    "price": 200,
+    "category": "Thrill",
+    "image": "https://i.pinimg.com/736x/fd/76/8f/fd768f37bc7457bc233f595509f40346.jpg"
+  },
+  {
+    "id": 12,
+    "bookname": "kingdon of the curse",
+    "price": 0,
+    "category": "Thrill",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDJndMT4LKVW6t5ufwKfD2xOvkW7uakKckiw&s"
+  },
+  {
+    "id": 13,
+    "bookname": "Atomic habit",
+    "price": 0,
+    "category": "motivation",
+    "image": "https://i.pinimg.com/originals/77/e9/9c/77e99cfeab775d06de54bb3725de36fe.jpg"
+  },
+  {
+    "id": 14,
+    "bookname": "Where he cant find you",
+    "price": 0,
+    "category": "Thrill",
+    "image": "https://i.pinimg.com/474x/07/05/29/0705299eecd42142164bf3f2cd3b453b.jpg"
+  },
+  {
+    "id": 15,
+    "bookname": "Do the epic shit",
+    "price": 0,
+    "category": "Thrill",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK5XD7ITnuFx2Q3vq9dfqlEknzlnfMrsuMPw&s"
   }
 ]

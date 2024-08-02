@@ -12,14 +12,15 @@ import Login from "./login";
 import LoginAfter from "./loginAfter";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/authcontext";
 
 export default function Signup() {
   let [data, setData] = React.useState({ name: "", email: "", password: "" });
 
   let navigate = useNavigate();
+  let context = React.useContext(AuthContext);
   const [open, setOpen] = React.useState(true);
 
-  let sendData = async (e) => {};
   let handleFormData = (e) => {
     // console.log(data);
     // console.log(e.target.value);
@@ -50,6 +51,7 @@ export default function Signup() {
                 navigate("/");
                 toast.success(res.data.message);
                 localStorage.setItem("user", JSON.stringify(res.data.user));
+                context.setAuthUser(res.data.user);
               })
               .catch((err) => {
                 navigate("/");

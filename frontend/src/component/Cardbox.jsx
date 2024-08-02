@@ -36,10 +36,16 @@ export default function CardPart() {
           Free offered courses!
         </h1>
         <p style={{ fontSize: "1rem", fontWeight: "normal" }}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia hic
-          excepturi omnis? Est commodi debitis quis rem eos possimus! Molestiae
-          incidunt, iure hic repellendus suscipit praesentium ab explicabo id
-          impedit!
+          At our store, we believe in the power of knowledge and the importance
+          of lifelong learning. That's why we're excited to offer a selection of
+          free courses designed to help you expand your skills and discover new
+          passions. Whether you're interested in delving into the world of web
+          development, exploring the fundamentals of Android development, or
+          mastering the art of competitive programming, we have something for
+          you. Our expertly crafted courses provide a perfect blend of theory
+          and hands-on practice, ensuring that you gain practical, real-world
+          skills. Join our community of learners today and take the first step
+          towards unlocking your full potential—all for free!
         </p>
       </div>
       <SliderEff list={freelist}></SliderEff>

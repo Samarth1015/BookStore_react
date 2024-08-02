@@ -1,0 +1,83 @@
+/* src/Contact.css */
+
+.ContactForm {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.contactForm {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactForm .formRow {
+  margin-bottom: 20px;
+}
+
+.contactForm .form-control {
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.contactForm .form-control:focus {
+  border-color: #007bff;
+  box-shadow: none;
+}
+
+.contactForm .formInput::placeholder {
+  color: #aaa;
+}
+
+.contactForm .errorMessage {
+  color: red;
+  font-size: 14px;
+}
+
+.contactForm .submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.contactForm .submit-btn:disabled {
+  background-color: #ccc;
+}
+
+.contactForm .submit-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.alert-dismissible .btn-close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.alert-dismissible .btn-close:focus {
+  outline: none;
+}

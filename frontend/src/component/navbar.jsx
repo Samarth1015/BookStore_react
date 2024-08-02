@@ -21,6 +21,7 @@ import InputBase from "@mui/material/InputBase";
 import { DarkMode } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import Login from "./login";
+import { AuthContext } from "../context/authcontext";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -108,11 +109,14 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
 }));
+import Logout from "./logout";
 
 const pages = ["Home", "Course", "Contact", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function Navbar() {
+  let context = React.useContext(AuthContext);
+
   let [mode, setMode] = React.useState(false);
   let checkMode = () => {
     setMode(!mode);
@@ -272,7 +276,7 @@ export default function Navbar() {
               }
               label={mode ? "LightMode" : "DarkMode"}
             />
-            <Login></Login>
+            {context.authUser ? <Logout></Logout> : <Login></Login>}
           </Toolbar>
         </Container>
       </AppBar>
